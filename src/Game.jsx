@@ -1,12 +1,12 @@
-var buttonColors = ['red', 'blue', 'green', 'yellow'];
+let buttonColors = ['red', 'blue', 'green', 'yellow'];
 
-var gamePattern = [];
+let gamePattern = [];
 
-var userClickedPattern = [];
+let userClickedPattern = [];
 
-var gameStart = false
+let gameStart = false
 
-var level = 0
+let level = 0
 
 //Restarts game if wrong answer
 function startOver() {
@@ -35,7 +35,7 @@ $(document).keydown(function() {
 //Click functionality
 $(".btn").click(function(){
 
-    var userChosenColor = $(this).attr("id");
+    let userChosenColor = $(this).attr("id");
     userClickedPattern.push(userChosenColor);
     playSound(userChosenColor);
     animatePress(userChosenColor);
@@ -83,8 +83,8 @@ function nextSequence(){
     userClickedPattern = [];
     level++;
     $('#level-title').text("Level " + level);
-    var randomNum = Math.floor(Math.random() * 4);    
-    var randomChosenColor = buttonColors[randomNum];
+    let randomNum = Math.floor(Math.random() * 4);    
+    let randomChosenColor = buttonColors[randomNum];
     gamePattern.push(randomChosenColor);
     $("#" + randomChosenColor).fadeIn(100).fadeOut(100).fadeIn(100);
     playSound(randomChosenColor);
@@ -94,7 +94,7 @@ function nextSequence(){
 //Sound functionality
 function playSound(name){
 
-    var audio = new Audio("sounds/" + name + ".mp3");
+    let audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
 
 }
@@ -114,17 +114,17 @@ function animatePress(currentColor) {
 export const Game = () => {
     return(
         <h1 id="level-title">Press A Key to Start</h1>
-  <div class="container">
-    <div lass="row">
-      <div type="button" id="green" class="btn green">
+  <div className="container">
+    <div className="row">
+      <div type="button" id="green" className="btn green">
       </div>
-      <div type="button" id="red" class="btn red">
+      <div type="button" id="red" className="btn red">
       </div>
     </div>
-    <div class="row">
-      <div type="button" id="yellow" class="btn yellow">
+    <div className="row">
+      <div type="button" id="yellow" className="btn yellow">
       </div>
-      <div type="button" id="blue" class="btn blue">
+      <div type="button" id="blue" className="btn blue">
       </div>
     </div>
   </div>
